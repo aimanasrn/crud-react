@@ -47,8 +47,9 @@ app.listen(port, () => {
 app.get('/api/employees', async (req, res) => {
     try {
         // Execute a SQL query to select all employees, ordered by id
-        const result = await pool.query(
-            `SELECT * FROM employees WHERE id = $1`,[2]
+        const result = await pool.query(`
+            SELECT * FROM employees WHERE id = $1
+            `,[2]
         );
         // Send the query results as a JSON response
         console.log(result);
