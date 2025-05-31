@@ -44,12 +44,11 @@ app.listen(port, () => {
 // GET all employees
 // Route: /api/employees
 // Fetches all records from the 'employees' table.
-app.get('/api/employees', async (req, res) => {
+app.get('/employees', async (req, res) => {
     try {
         // Execute a SQL query to select all employees, ordered by id
         const result = await pool.query(`
-            SELECT * FROM employees WHERE id = $1
-            `,[2]
+            SELECT * FROM employees`
         );
         // Send the query results as a JSON response
         console.log(result);
